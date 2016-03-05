@@ -1,0 +1,16 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Thu Feb 25 20:01:59 2016
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "DIP1" LOCATE = SITE "F17" LEVEL 1;
+COMP "DIP2" LOCATE = SITE "F18" LEVEL 1;
+COMP "DIP3" LOCATE = SITE "E16" LEVEL 1;
+COMP "DIP4" LOCATE = SITE "E18" LEVEL 1;
+COMP "DIP5" LOCATE = SITE "D18" LEVEL 1;
+COMP "DIP6" LOCATE = SITE "D17" LEVEL 1;
+COMP "DIP7" LOCATE = SITE "C18" LEVEL 1;
+COMP "DIP8" LOCATE = SITE "C17" LEVEL 1;
+COMP "LED1" LOCATE = SITE "P15" LEVEL 1;
+SCHEMATIC END;
+

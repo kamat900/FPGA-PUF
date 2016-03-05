@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\test\double2to1Mux\Mux_2_to_1.ncd
+OUTFILE=C:\test\double2to1Mux\Mux_2_to_1.bit
+FAMILY=Spartan6
+PART=xc6slx9-2csg324
+WORKINGDIR=C:\test\double2to1Mux
+LICENSE=WebPack
+USER_INFO=211161869_0_0_431
