@@ -70,12 +70,14 @@
     <file xil_pn:fileType="FILE_XPI" xil_pn:name="MultiArbiter.xpi"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="MultiArbiter.xst"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="MultiArbiter_envsettings.html"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="MultiArbiter_fpga_editor.log"/>
     <file xil_pn:fileType="FILE_NCD" xil_pn:name="MultiArbiter_guide.ncd" xil_pn:origination="imported"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="MultiArbiter_map.map" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="MultiArbiter_map.mrp" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="MultiArbiter_map.ncd" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGM" xil_pn:name="MultiArbiter_map.ngm" xil_pn:subbranch="Map"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="MultiArbiter_map.xrpt"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="MultiArbiter_map_fpga_editor.log"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="MultiArbiter_ngdbuild.xrpt"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="MultiArbiter_pad.csv" xil_pn:subbranch="Par"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_TXT_REPORT" xil_pn:name="MultiArbiter_pad.txt" xil_pn:subbranch="Par"/>
@@ -166,13 +168,10 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1456426908" xil_pn:in_ck="6562328022443021125" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-974852160924790943" xil_pn:start_ts="1456426900">
+    <transform xil_pn:end_ts="1457610029" xil_pn:in_ck="6562328022443021125" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-757397736128379339" xil_pn:start_ts="1457610016">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="MultiArbiter.lso"/>
       <outfile xil_pn:name="MultiArbiter.ngc"/>
@@ -186,24 +185,23 @@
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
     </transform>
-    <transform xil_pn:end_ts="1456424108" xil_pn:in_ck="6578114222110546020" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="8952773329584768703" xil_pn:start_ts="1456424108">
+    <transform xil_pn:end_ts="1457610239" xil_pn:in_ck="6578114222110546020" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="8952773329584768703" xil_pn:start_ts="1457610239">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1456426914" xil_pn:in_ck="2458422474980173188" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-1384584840289349933" xil_pn:start_ts="1456426908">
+    <transform xil_pn:end_ts="1457610245" xil_pn:in_ck="2458422474980173188" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-1384584840289349933" xil_pn:start_ts="1457610239">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="MultiArbiter.bld"/>
       <outfile xil_pn:name="MultiArbiter.ngd"/>
       <outfile xil_pn:name="MultiArbiter_ngdbuild.xrpt"/>
       <outfile xil_pn:name="_ngo"/>
       <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1456426920" xil_pn:in_ck="-8689957262073224025" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="-3239470449407159120" xil_pn:start_ts="1456426914">
+    <transform xil_pn:end_ts="1457610257" xil_pn:in_ck="-8689957262073224025" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="-3239470449407159120" xil_pn:start_ts="1457610245">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="MultiArbiter.pcf"/>
@@ -216,11 +214,9 @@
       <outfile xil_pn:name="MultiArbiter_usage.xml"/>
       <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1456426932" xil_pn:in_ck="-3166945000258769774" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="93661965788626211" xil_pn:start_ts="1456426920">
+    <transform xil_pn:end_ts="1457610269" xil_pn:in_ck="-3166945000258769774" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="93661965788626211" xil_pn:start_ts="1457610257">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="MultiArbiter.ncd"/>
       <outfile xil_pn:name="MultiArbiter.pad"/>
       <outfile xil_pn:name="MultiArbiter.par"/>
@@ -232,10 +228,10 @@
       <outfile xil_pn:name="MultiArbiter_par.xrpt"/>
       <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1456426974" xil_pn:in_ck="-4916613339538295017" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="4970201210546912173" xil_pn:start_ts="1456426957">
+    <transform xil_pn:end_ts="1457610290" xil_pn:in_ck="-4916613339538295017" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="4970201210546912173" xil_pn:start_ts="1457610274">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="MultiArbiter.ut"/>
       <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
       <outfile xil_pn:name="multiarbiter.bgn"/>
@@ -246,10 +242,9 @@
       <outfile xil_pn:name="webtalk.log"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1456426932" xil_pn:in_ck="5603386205920630427" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1456426927">
+    <transform xil_pn:end_ts="1457610269" xil_pn:in_ck="5603386205920630427" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1457610264">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="MultiArbiter.twr"/>
       <outfile xil_pn:name="MultiArbiter.twx"/>
       <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>

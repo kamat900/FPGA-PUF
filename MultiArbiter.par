@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-DESKTOP-I2LCMFJ::  Thu Feb 25 20:02:01 2016
+DESKTOP-I2LCMFJ::  Thu Mar 10 12:44:18 2016
 
 par -w -intstyle ise -ol high -mt off MultiArbiter_map.ncd MultiArbiter.ncd
 MultiArbiter.pcf 
@@ -27,17 +27,38 @@ Device speed data version:  "PRODUCTION 1.23 2013-10-13".
 Device Utilization Summary:
 
 Slice Logic Utilization:
-  Number of Slice Registers:                     0 out of  11,440    0%
-  Number of Slice LUTs:                          0 out of   5,720    0%
+  Number of Slice Registers:                     1 out of  11,440    1%
+    Number used as Flip Flops:                   1
+    Number used as Latches:                      0
+    Number used as Latch-thrus:                  0
+    Number used as AND/OR logics:                0
+  Number of Slice LUTs:                        513 out of   5,720    8%
+    Number used as logic:                      513 out of   5,720    8%
+      Number using O6 output only:             513
+      Number using O5 output only:               0
+      Number using O5 and O6:                    0
+      Number used as ROM:                        0
+    Number used as Memory:                       0 out of   1,440    0%
 
 Slice Logic Distribution:
-  Number of occupied Slices:                     0 out of   1,430    0%
+  Number of occupied Slices:                   514 out of   1,430   35%
   Number of MUXCYs used:                         0 out of   2,860    0%
-  Number of LUT Flip Flop pairs used:            0
+  Number of LUT Flip Flop pairs used:          514
+    Number with an unused Flip Flop:           513 out of     514   99%
+    Number with an unused LUT:                   1 out of     514    1%
+    Number of fully used LUT-FF pairs:           0 out of     514    0%
+    Number of slice register sites lost
+      to control set restrictions:               0 out of  11,440    0%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                         9 out of     200    4%
-    Number of LOCed IOBs:                        9 out of       9  100%
+  Number of bonded IOBs:                        12 out of     200    6%
+    Number of LOCed IOBs:                       12 out of      12  100%
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         0 out of      32    0%
@@ -66,43 +87,35 @@ Specific Feature Utilization:
 Overall effort level (-ol):   High 
 Router effort level (-rl):    High 
 
-Starting initial Timing Analysis.  REAL time: 2 secs 
-Finished initial Timing Analysis.  REAL time: 2 secs 
+Starting initial Timing Analysis.  REAL time: 3 secs 
+Finished initial Timing Analysis.  REAL time: 3 secs 
 
-WARNING:Par:288 - The signal DIP1_IBUF has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal DIP2_IBUF has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal DIP3_IBUF has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal DIP4_IBUF has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal DIP5_IBUF has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal DIP6_IBUF has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal DIP7_IBUF has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal DIP8_IBUF has no load.  PAR will not attempt to route this signal.
 Starting Router
 
 
-Phase  1  : 1 unrouted;      REAL time: 3 secs 
+Phase  1  : 901 unrouted;      REAL time: 3 secs 
 
-Phase  2  : 1 unrouted;      REAL time: 3 secs 
+Phase  2  : 901 unrouted;      REAL time: 3 secs 
 
-Phase  3  : 0 unrouted;      REAL time: 3 secs 
+Phase  3  : 115 unrouted;      REAL time: 3 secs 
 
-Phase  4  : 0 unrouted; (Par is working to improve performance)     REAL time: 3 secs 
+Phase  4  : 115 unrouted; (Par is working to improve performance)     REAL time: 3 secs 
 
 Updating file: MultiArbiter.ncd with current fully routed design.
 
-Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 3 secs 
+Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
 
-Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 3 secs 
+Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
 
-Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 3 secs 
+Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
 
-Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 3 secs 
+Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
 
-Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 3 secs 
+Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
 
-Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 3 secs 
-Total REAL time to Router completion: 3 secs 
-Total CPU time to Router completion: 3 secs 
+Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
+Total REAL time to Router completion: 4 secs 
+Total CPU time to Router completion: 4 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -115,24 +128,32 @@ Generating "PAR" statistics.
 INFO:Par:459 - The Clock Report is not displayed in the non timing-driven mode.
 Timing Score: 0 (Setup: 0, Hold: 0)
 
+Asterisk (*) preceding a constraint indicates it was not met.
+   This may be due to a setup or hold violation.
+
+------------------------------------------------------------------------------------------------------
+  Constraint                                | Requested  | Actual     | Logic  | Absolute   |Number of
+                                            |            |            | Levels | Slack      |errors   
+------------------------------------------------------------------------------------------------------
+
+
+All constraints were met.
 
 
 Generating Pad Report.
 
 All signals are completely routed.
 
-WARNING:Par:283 - There are 8 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
-
 Total REAL time to PAR completion: 4 secs 
 Total CPU time to PAR completion: 4 secs 
 
-Peak Memory Usage:  329 MB
+Peak Memory Usage:  325 MB
 
 Placer: Placement generated during map.
 Routing: Completed - No errors found.
 
 Number of error messages: 0
-Number of warning messages: 10
+Number of warning messages: 0
 Number of info messages: 2
 
 Writing design to file MultiArbiter.ncd

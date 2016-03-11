@@ -1,0 +1,36 @@
+#:C0     
+#Xilinx FPGA Editor Command Log File
+#Editor Version:
+#:V   NT M2.1 P.20131013
+#Current Working Directory:
+#:D   C:\test\double2to1Mux
+#Date/Time:
+#:T   Tue Mar 08 13:29:59 2016
+#------------------------------
+	#Reading MultiArbiter.ncd...
+	#Loading device for application Rf_Device from file '6slx9.nph' in environment C:\Xilinx\14.7\ISE_DS\ISE\.
+	#   "MultiArbiter" is an NCD, version 3.2, device xc6slx9, package csg324, speed -2
+	#Design creation date: 2016.03.08.11.42.27
+	#Building chip graphics...
+	#Loading speed info...
+	#1
+setattr main edit-mode no-logic-changes
+	#2
+unselect -all
+	#3
+unselect -all
+	#4
+unselect -all
+	#5
+hilite -c tomato
+	#WARNING:FPGAEditor:48 - Nothing to hilite -- there is nothing selected.
+	#6
+hilite -c teal
+	#WARNING:FPGAEditor:48 - Nothing to hilite -- there is nothing selected.
+	#7
+hilite -c violet
+	#WARNING:FPGAEditor:48 - Nothing to hilite -- there is nothing selected.
+	#8
+unselect -all
+	#9
+unselect -all

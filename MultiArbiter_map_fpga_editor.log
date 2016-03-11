@@ -1,0 +1,39 @@
+#:C9     
+#Xilinx FPGA Editor Command Log File
+#Editor Version:
+#:V   NT M2.1 P.20131013
+#Current Working Directory:
+#:D   C:\test\double2to1Mux
+#Date/Time:
+#:T   Tue Mar 08 10:59:17 2016
+#------------------------------
+	#Reading MultiArbiter_map.ncd...
+	#Loading device for application Rf_Device from file '6slx9.nph' in environment C:\Xilinx\14.7\ISE_DS\ISE\.
+	#   "MultiArbiter" is an NCD, version 3.2, device xc6slx9, package csg324, speed -2
+	#Design creation date: 2016.03.08.09.59.11
+	#Building chip graphics...
+	#Loading speed info...
+	#1
+setattr main edit-mode no-logic-changes
+	#2
+unselect -all
+	#3
+unselect -all
+	#4
+select site 'MCB_X0Y1'
+	#site "MCB_X0Y1",  type = MCB  (RPM grid X1Y186)
+	#5
+unselect -all
+	#6
+select site 'SLICE_X1Y41'
+	#site "SLICE_X1Y41",  type = SLICEX  (RPM grid X7Y164)
+	#7
+unselect -all
+	#8
+select site 'SLICE_X11Y42'
+	#site "SLICE_X11Y42",  type = SLICEX  (RPM grid X35Y168)
+	#9
+unselect -all
+	#10
+select site 'SLICE_X10Y42'
+	#site "SLICE_X10Y42",  type = SLICEL  (RPM grid X33Y168)

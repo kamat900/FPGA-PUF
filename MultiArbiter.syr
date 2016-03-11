@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> Reading design: MultiArbiter.prj
 
@@ -83,7 +83,7 @@ Equivalent register Removal        : YES
 Optimization Goal                  : Speed
 Optimization Effort                : 1
 Power Reduction                    : NO
-Keep Hierarchy                     : No
+Keep Hierarchy                     : Yes
 Netlist Hierarchy                  : As_Optimized
 RTL Output                         : Yes
 Global Optimization                : AllClockNets
@@ -116,8 +116,12 @@ Parsing entity <Mux_2_to_1>.
 Parsing architecture <Func> of entity <mux_2_to_1>.
 Parsing entity <Arbiterstage>.
 Parsing architecture <Func> of entity <arbiterstage>.
-Parsing entity <S_R_latch_top>.
-Parsing architecture <Behavioral> of entity <s_r_latch_top>.
+Parsing entity <dff_sync_reset>.
+Parsing architecture <rtl> of entity <dff_sync_reset>.
+Parsing entity <bitStage>.
+Parsing architecture <Func> of entity <bitstage>.
+Parsing entity <sevenbitStage>.
+Parsing architecture <Func> of entity <sevenbitstage>.
 Parsing entity <MultiArbiter>.
 Parsing architecture <Behavior> of entity <multiarbiter>.
 
@@ -126,6 +130,8 @@ Parsing architecture <Behavior> of entity <multiarbiter>.
 =========================================================================
 
 Elaborating entity <MultiArbiter> (architecture <Behavior>) from library <work>.
+
+Elaborating entity <bitStage> (architecture <Func>) from library <work>.
 
 Elaborating entity <Arbiterstage> (architecture <Func>) from library <work>.
 
@@ -137,7 +143,9 @@ Elaborating entity <andGate> (architecture <func>) from library <work>.
 
 Elaborating entity <orGate> (architecture <func>) from library <work>.
 
-Elaborating entity <S_R_latch_top> (architecture <Behavioral>) from library <work>.
+Elaborating entity <sevenbitStage> (architecture <Func>) from library <work>.
+
+Elaborating entity <dff_sync_reset> (architecture <rtl>) from library <work>.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -145,11 +153,15 @@ Elaborating entity <S_R_latch_top> (architecture <Behavioral>) from library <wor
 
 Synthesizing Unit <MultiArbiter>.
     Related source file is "C:\test\double2to1Mux\doubleMux.vhd".
-WARNING:Xst:647 - Input <DIP1> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <DIP2> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Summary:
 	no macro.
 Unit <MultiArbiter> synthesized.
+
+Synthesizing Unit <bitStage>.
+    Related source file is "C:\test\double2to1Mux\doubleMux.vhd".
+    Summary:
+	no macro.
+Unit <bitStage> synthesized.
 
 Synthesizing Unit <Arbiterstage>.
     Related source file is "C:\test\double2to1Mux\doubleMux.vhd".
@@ -181,16 +193,26 @@ Synthesizing Unit <orGate>.
 	no macro.
 Unit <orGate> synthesized.
 
-Synthesizing Unit <S_R_latch_top>.
+Synthesizing Unit <sevenbitStage>.
     Related source file is "C:\test\double2to1Mux\doubleMux.vhd".
     Summary:
 	no macro.
-Unit <S_R_latch_top> synthesized.
+Unit <sevenbitStage> synthesized.
+
+Synthesizing Unit <dff_sync_reset>.
+    Related source file is "C:\test\double2to1Mux\doubleMux.vhd".
+    Found 1-bit register for signal <q>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <dff_sync_reset> synthesized.
 
 =========================================================================
 HDL Synthesis Report
 
-Found no macro
+Macro Statistics
+# Registers                                            : 1
+ 1-bit register                                        : 1
+
 =========================================================================
 
 =========================================================================
@@ -201,14 +223,33 @@ Found no macro
 =========================================================================
 Advanced HDL Synthesis Report
 
-Found no macro
+Macro Statistics
+# Registers                                            : 1
+ Flip-Flops                                            : 1
+
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
 
+Optimizing unit <bitStage> ...
+
+Optimizing unit <Arbiterstage> ...
+
+Optimizing unit <Mux_2_to_1> ...
+
+Optimizing unit <sevenbitStage> ...
+
+Optimizing unit <dff_sync_reset> ...
+
 Optimizing unit <MultiArbiter> ...
+
+Optimizing unit <andGate> ...
+
+Optimizing unit <notGate> ...
+
+Optimizing unit <orGate> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -219,7 +260,10 @@ Final Macro Processing ...
 =========================================================================
 Final Register Report
 
-Found no macro
+Macro Statistics
+# Registers                                            : 1
+ Flip-Flops                                            : 1
+
 =========================================================================
 
 =========================================================================
@@ -241,10 +285,14 @@ Top Level Output File Name         : MultiArbiter.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1
-#      GND                         : 1
-# IO Buffers                       : 1
-#      OBUF                        : 1
+# BELS                             : 514
+#      INV                         : 130
+#      LUT2                        : 384
+# FlipFlops/Latches                : 1
+#      FD                          : 1
+# IO Buffers                       : 12
+#      IBUF                        : 10
+#      OBUF                        : 2
 
 Device utilization summary:
 ---------------------------
@@ -253,17 +301,20 @@ Selected Device : 6slx9csg324-2
 
 
 Slice Logic Utilization: 
+ Number of Slice Registers:               1  out of  11440     0%  
+ Number of Slice LUTs:                  514  out of   5720     8%  
+    Number used as Logic:               514  out of   5720     8%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:      0
-   Number with an unused Flip Flop:       0  out of      0         
-   Number with an unused LUT:             0  out of      0         
-   Number of fully used LUT-FF pairs:     0  out of      0         
-   Number of unique control sets:         0
+ Number of LUT Flip Flop pairs used:    515
+   Number with an unused Flip Flop:     514  out of    515    99%  
+   Number with an unused LUT:             1  out of    515     0%  
+   Number of fully used LUT-FF pairs:     0  out of    515     0%  
+   Number of unique control sets:         1
 
 IO Utilization: 
- Number of IOs:                           9
- Number of bonded IOBs:                   1  out of    200     0%  
+ Number of IOs:                          12
+ Number of bonded IOBs:                  12  out of    200     6%  
 
 Specific Feature Utilization:
 
@@ -285,7 +336,15 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
-No clock signals found in this design
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+G24/G6/G4/F(G24/G6/G4/F1:O)        | NONE(*)(G25/q)         | 1     |
+-----------------------------------+------------------------+-------+
+(*) This 1 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
 ----------------------------------------
@@ -296,13 +355,713 @@ Timing Summary:
 Speed Grade: -2
 
    Minimum period: No path found
-   Minimum input arrival time before clock: No path found
-   Maximum output required time after clock: No path found
+   Minimum input arrival time before clock: 132.516ns
+   Maximum output required time after clock: 5.098ns
    Maximum combinational path delay: No path found
 
 Timing Details:
 ---------------
 All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'G24/G6/G4/F'
+  Total number of paths / destination ports: 55340232221128655000 / 1
+-------------------------------------------------------------------------
+Offset:              132.516ns (Levels of Logic = 396)
+  Source:            DIP1 (PAD)
+  Destination:       G25/q (FF)
+  Destination Clock: G24/G6/G4/F rising
+
+  Data Path: DIP1 to G25/q
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            32   1.328   1.519  DIP1_IBUF (DIP1_IBUF)
+     begin scope: 'G16:C'
+     begin scope: 'G16/G7:C'
+     begin scope: 'G16/G7/G5:C'
+     begin scope: 'G16/G7/G5/G1:inPort'
+     INV:I->O              1   0.255   0.790  outPort1_INV_0 (outPort)
+     end scope: 'G16/G7/G5/G1:outPort'
+     begin scope: 'G16/G7/G5/G2:A'
+     LUT2:I0->O            1   0.250   0.790  F1 (F)
+     end scope: 'G16/G7/G5/G2:F'
+     begin scope: 'G16/G7/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G16/G7/G5/G4:F'
+     end scope: 'G16/G7/G5:F'
+     end scope: 'G16/G7:F'
+     begin scope: 'G16/G8:A'
+     begin scope: 'G16/G8/G5:A'
+     begin scope: 'G16/G8/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G16/G8/G5/G2:F'
+     begin scope: 'G16/G8/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G16/G8/G5/G4:F'
+     end scope: 'G16/G8/G5:F'
+     end scope: 'G16/G8:F'
+     begin scope: 'G16/G9:A'
+     begin scope: 'G16/G9/G5:A'
+     begin scope: 'G16/G9/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G16/G9/G5/G2:F'
+     begin scope: 'G16/G9/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G16/G9/G5/G4:F'
+     end scope: 'G16/G9/G5:F'
+     end scope: 'G16/G9:F'
+     begin scope: 'G16/G10:A'
+     begin scope: 'G16/G10/G5:A'
+     begin scope: 'G16/G10/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G16/G10/G5/G2:F'
+     begin scope: 'G16/G10/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G16/G10/G5/G4:F'
+     end scope: 'G16/G10/G5:F'
+     end scope: 'G16/G10:F'
+     begin scope: 'G16/G11:A'
+     begin scope: 'G16/G11/G5:A'
+     begin scope: 'G16/G11/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G16/G11/G5/G2:F'
+     begin scope: 'G16/G11/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G16/G11/G5/G4:F'
+     end scope: 'G16/G11/G5:F'
+     end scope: 'G16/G11:F'
+     begin scope: 'G16/G12:A'
+     begin scope: 'G16/G12/G5:A'
+     begin scope: 'G16/G12/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G16/G12/G5/G2:F'
+     begin scope: 'G16/G12/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G16/G12/G5/G4:F'
+     end scope: 'G16/G12/G5:F'
+     end scope: 'G16/G12:F'
+     begin scope: 'G16/G13:A'
+     begin scope: 'G16/G13/G5:A'
+     begin scope: 'G16/G13/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G16/G13/G5/G2:F'
+     begin scope: 'G16/G13/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G16/G13/G5/G4:F'
+     end scope: 'G16/G13/G5:F'
+     end scope: 'G16/G13:F'
+     begin scope: 'G16/G14:A'
+     begin scope: 'G16/G14/G5:A'
+     begin scope: 'G16/G14/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G16/G14/G5/G2:F'
+     begin scope: 'G16/G14/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G16/G14/G5/G4:F'
+     end scope: 'G16/G14/G5:F'
+     end scope: 'G16/G14:F'
+     end scope: 'G16:P'
+     begin scope: 'G17:A'
+     begin scope: 'G17/G7:A'
+     begin scope: 'G17/G7/G5:A'
+     begin scope: 'G17/G7/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G17/G7/G5/G2:F'
+     begin scope: 'G17/G7/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G17/G7/G5/G4:F'
+     end scope: 'G17/G7/G5:F'
+     end scope: 'G17/G7:F'
+     begin scope: 'G17/G8:A'
+     begin scope: 'G17/G8/G5:A'
+     begin scope: 'G17/G8/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G17/G8/G5/G2:F'
+     begin scope: 'G17/G8/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G17/G8/G5/G4:F'
+     end scope: 'G17/G8/G5:F'
+     end scope: 'G17/G8:F'
+     begin scope: 'G17/G9:A'
+     begin scope: 'G17/G9/G5:A'
+     begin scope: 'G17/G9/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G17/G9/G5/G2:F'
+     begin scope: 'G17/G9/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G17/G9/G5/G4:F'
+     end scope: 'G17/G9/G5:F'
+     end scope: 'G17/G9:F'
+     begin scope: 'G17/G10:A'
+     begin scope: 'G17/G10/G5:A'
+     begin scope: 'G17/G10/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G17/G10/G5/G2:F'
+     begin scope: 'G17/G10/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G17/G10/G5/G4:F'
+     end scope: 'G17/G10/G5:F'
+     end scope: 'G17/G10:F'
+     begin scope: 'G17/G11:A'
+     begin scope: 'G17/G11/G5:A'
+     begin scope: 'G17/G11/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G17/G11/G5/G2:F'
+     begin scope: 'G17/G11/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G17/G11/G5/G4:F'
+     end scope: 'G17/G11/G5:F'
+     end scope: 'G17/G11:F'
+     begin scope: 'G17/G12:A'
+     begin scope: 'G17/G12/G5:A'
+     begin scope: 'G17/G12/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G17/G12/G5/G2:F'
+     begin scope: 'G17/G12/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G17/G12/G5/G4:F'
+     end scope: 'G17/G12/G5:F'
+     end scope: 'G17/G12:F'
+     begin scope: 'G17/G13:A'
+     begin scope: 'G17/G13/G5:A'
+     begin scope: 'G17/G13/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G17/G13/G5/G2:F'
+     begin scope: 'G17/G13/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G17/G13/G5/G4:F'
+     end scope: 'G17/G13/G5:F'
+     end scope: 'G17/G13:F'
+     begin scope: 'G17/G14:A'
+     begin scope: 'G17/G14/G5:A'
+     begin scope: 'G17/G14/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G17/G14/G5/G2:F'
+     begin scope: 'G17/G14/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G17/G14/G5/G4:F'
+     end scope: 'G17/G14/G5:F'
+     end scope: 'G17/G14:F'
+     end scope: 'G17:P'
+     begin scope: 'G18:A'
+     begin scope: 'G18/G7:A'
+     begin scope: 'G18/G7/G5:A'
+     begin scope: 'G18/G7/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G18/G7/G5/G2:F'
+     begin scope: 'G18/G7/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G18/G7/G5/G4:F'
+     end scope: 'G18/G7/G5:F'
+     end scope: 'G18/G7:F'
+     begin scope: 'G18/G8:A'
+     begin scope: 'G18/G8/G5:A'
+     begin scope: 'G18/G8/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G18/G8/G5/G2:F'
+     begin scope: 'G18/G8/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G18/G8/G5/G4:F'
+     end scope: 'G18/G8/G5:F'
+     end scope: 'G18/G8:F'
+     begin scope: 'G18/G9:A'
+     begin scope: 'G18/G9/G5:A'
+     begin scope: 'G18/G9/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G18/G9/G5/G2:F'
+     begin scope: 'G18/G9/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G18/G9/G5/G4:F'
+     end scope: 'G18/G9/G5:F'
+     end scope: 'G18/G9:F'
+     begin scope: 'G18/G10:A'
+     begin scope: 'G18/G10/G5:A'
+     begin scope: 'G18/G10/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G18/G10/G5/G2:F'
+     begin scope: 'G18/G10/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G18/G10/G5/G4:F'
+     end scope: 'G18/G10/G5:F'
+     end scope: 'G18/G10:F'
+     begin scope: 'G18/G11:A'
+     begin scope: 'G18/G11/G5:A'
+     begin scope: 'G18/G11/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G18/G11/G5/G2:F'
+     begin scope: 'G18/G11/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G18/G11/G5/G4:F'
+     end scope: 'G18/G11/G5:F'
+     end scope: 'G18/G11:F'
+     begin scope: 'G18/G12:A'
+     begin scope: 'G18/G12/G5:A'
+     begin scope: 'G18/G12/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G18/G12/G5/G2:F'
+     begin scope: 'G18/G12/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G18/G12/G5/G4:F'
+     end scope: 'G18/G12/G5:F'
+     end scope: 'G18/G12:F'
+     begin scope: 'G18/G13:A'
+     begin scope: 'G18/G13/G5:A'
+     begin scope: 'G18/G13/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G18/G13/G5/G2:F'
+     begin scope: 'G18/G13/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G18/G13/G5/G4:F'
+     end scope: 'G18/G13/G5:F'
+     end scope: 'G18/G13:F'
+     begin scope: 'G18/G14:A'
+     begin scope: 'G18/G14/G5:A'
+     begin scope: 'G18/G14/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G18/G14/G5/G2:F'
+     begin scope: 'G18/G14/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G18/G14/G5/G4:F'
+     end scope: 'G18/G14/G5:F'
+     end scope: 'G18/G14:F'
+     end scope: 'G18:P'
+     begin scope: 'G19:A'
+     begin scope: 'G19/G7:A'
+     begin scope: 'G19/G7/G5:A'
+     begin scope: 'G19/G7/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G19/G7/G5/G2:F'
+     begin scope: 'G19/G7/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G19/G7/G5/G4:F'
+     end scope: 'G19/G7/G5:F'
+     end scope: 'G19/G7:F'
+     begin scope: 'G19/G8:A'
+     begin scope: 'G19/G8/G5:A'
+     begin scope: 'G19/G8/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G19/G8/G5/G2:F'
+     begin scope: 'G19/G8/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G19/G8/G5/G4:F'
+     end scope: 'G19/G8/G5:F'
+     end scope: 'G19/G8:F'
+     begin scope: 'G19/G9:A'
+     begin scope: 'G19/G9/G5:A'
+     begin scope: 'G19/G9/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G19/G9/G5/G2:F'
+     begin scope: 'G19/G9/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G19/G9/G5/G4:F'
+     end scope: 'G19/G9/G5:F'
+     end scope: 'G19/G9:F'
+     begin scope: 'G19/G10:A'
+     begin scope: 'G19/G10/G5:A'
+     begin scope: 'G19/G10/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G19/G10/G5/G2:F'
+     begin scope: 'G19/G10/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G19/G10/G5/G4:F'
+     end scope: 'G19/G10/G5:F'
+     end scope: 'G19/G10:F'
+     begin scope: 'G19/G11:A'
+     begin scope: 'G19/G11/G5:A'
+     begin scope: 'G19/G11/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G19/G11/G5/G2:F'
+     begin scope: 'G19/G11/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G19/G11/G5/G4:F'
+     end scope: 'G19/G11/G5:F'
+     end scope: 'G19/G11:F'
+     begin scope: 'G19/G12:A'
+     begin scope: 'G19/G12/G5:A'
+     begin scope: 'G19/G12/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G19/G12/G5/G2:F'
+     begin scope: 'G19/G12/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G19/G12/G5/G4:F'
+     end scope: 'G19/G12/G5:F'
+     end scope: 'G19/G12:F'
+     begin scope: 'G19/G13:A'
+     begin scope: 'G19/G13/G5:A'
+     begin scope: 'G19/G13/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G19/G13/G5/G2:F'
+     begin scope: 'G19/G13/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G19/G13/G5/G4:F'
+     end scope: 'G19/G13/G5:F'
+     end scope: 'G19/G13:F'
+     begin scope: 'G19/G14:A'
+     begin scope: 'G19/G14/G5:A'
+     begin scope: 'G19/G14/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G19/G14/G5/G2:F'
+     begin scope: 'G19/G14/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G19/G14/G5/G4:F'
+     end scope: 'G19/G14/G5:F'
+     end scope: 'G19/G14:F'
+     end scope: 'G19:P'
+     begin scope: 'G20:A'
+     begin scope: 'G20/G7:A'
+     begin scope: 'G20/G7/G5:A'
+     begin scope: 'G20/G7/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G20/G7/G5/G2:F'
+     begin scope: 'G20/G7/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G20/G7/G5/G4:F'
+     end scope: 'G20/G7/G5:F'
+     end scope: 'G20/G7:F'
+     begin scope: 'G20/G8:A'
+     begin scope: 'G20/G8/G5:A'
+     begin scope: 'G20/G8/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G20/G8/G5/G2:F'
+     begin scope: 'G20/G8/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G20/G8/G5/G4:F'
+     end scope: 'G20/G8/G5:F'
+     end scope: 'G20/G8:F'
+     begin scope: 'G20/G9:A'
+     begin scope: 'G20/G9/G5:A'
+     begin scope: 'G20/G9/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G20/G9/G5/G2:F'
+     begin scope: 'G20/G9/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G20/G9/G5/G4:F'
+     end scope: 'G20/G9/G5:F'
+     end scope: 'G20/G9:F'
+     begin scope: 'G20/G10:A'
+     begin scope: 'G20/G10/G5:A'
+     begin scope: 'G20/G10/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G20/G10/G5/G2:F'
+     begin scope: 'G20/G10/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G20/G10/G5/G4:F'
+     end scope: 'G20/G10/G5:F'
+     end scope: 'G20/G10:F'
+     begin scope: 'G20/G11:A'
+     begin scope: 'G20/G11/G5:A'
+     begin scope: 'G20/G11/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G20/G11/G5/G2:F'
+     begin scope: 'G20/G11/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G20/G11/G5/G4:F'
+     end scope: 'G20/G11/G5:F'
+     end scope: 'G20/G11:F'
+     begin scope: 'G20/G12:A'
+     begin scope: 'G20/G12/G5:A'
+     begin scope: 'G20/G12/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G20/G12/G5/G2:F'
+     begin scope: 'G20/G12/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G20/G12/G5/G4:F'
+     end scope: 'G20/G12/G5:F'
+     end scope: 'G20/G12:F'
+     begin scope: 'G20/G13:A'
+     begin scope: 'G20/G13/G5:A'
+     begin scope: 'G20/G13/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G20/G13/G5/G2:F'
+     begin scope: 'G20/G13/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G20/G13/G5/G4:F'
+     end scope: 'G20/G13/G5:F'
+     end scope: 'G20/G13:F'
+     begin scope: 'G20/G14:A'
+     begin scope: 'G20/G14/G5:A'
+     begin scope: 'G20/G14/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G20/G14/G5/G2:F'
+     begin scope: 'G20/G14/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G20/G14/G5/G4:F'
+     end scope: 'G20/G14/G5:F'
+     end scope: 'G20/G14:F'
+     end scope: 'G20:P'
+     begin scope: 'G21:A'
+     begin scope: 'G21/G7:A'
+     begin scope: 'G21/G7/G5:A'
+     begin scope: 'G21/G7/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G21/G7/G5/G2:F'
+     begin scope: 'G21/G7/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G21/G7/G5/G4:F'
+     end scope: 'G21/G7/G5:F'
+     end scope: 'G21/G7:F'
+     begin scope: 'G21/G8:A'
+     begin scope: 'G21/G8/G5:A'
+     begin scope: 'G21/G8/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G21/G8/G5/G2:F'
+     begin scope: 'G21/G8/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G21/G8/G5/G4:F'
+     end scope: 'G21/G8/G5:F'
+     end scope: 'G21/G8:F'
+     begin scope: 'G21/G9:A'
+     begin scope: 'G21/G9/G5:A'
+     begin scope: 'G21/G9/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G21/G9/G5/G2:F'
+     begin scope: 'G21/G9/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G21/G9/G5/G4:F'
+     end scope: 'G21/G9/G5:F'
+     end scope: 'G21/G9:F'
+     begin scope: 'G21/G10:A'
+     begin scope: 'G21/G10/G5:A'
+     begin scope: 'G21/G10/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G21/G10/G5/G2:F'
+     begin scope: 'G21/G10/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G21/G10/G5/G4:F'
+     end scope: 'G21/G10/G5:F'
+     end scope: 'G21/G10:F'
+     begin scope: 'G21/G11:A'
+     begin scope: 'G21/G11/G5:A'
+     begin scope: 'G21/G11/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G21/G11/G5/G2:F'
+     begin scope: 'G21/G11/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G21/G11/G5/G4:F'
+     end scope: 'G21/G11/G5:F'
+     end scope: 'G21/G11:F'
+     begin scope: 'G21/G12:A'
+     begin scope: 'G21/G12/G5:A'
+     begin scope: 'G21/G12/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G21/G12/G5/G2:F'
+     begin scope: 'G21/G12/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G21/G12/G5/G4:F'
+     end scope: 'G21/G12/G5:F'
+     end scope: 'G21/G12:F'
+     begin scope: 'G21/G13:A'
+     begin scope: 'G21/G13/G5:A'
+     begin scope: 'G21/G13/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G21/G13/G5/G2:F'
+     begin scope: 'G21/G13/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G21/G13/G5/G4:F'
+     end scope: 'G21/G13/G5:F'
+     end scope: 'G21/G13:F'
+     begin scope: 'G21/G14:A'
+     begin scope: 'G21/G14/G5:A'
+     begin scope: 'G21/G14/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G21/G14/G5/G2:F'
+     begin scope: 'G21/G14/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G21/G14/G5/G4:F'
+     end scope: 'G21/G14/G5:F'
+     end scope: 'G21/G14:F'
+     end scope: 'G21:P'
+     begin scope: 'G22:A'
+     begin scope: 'G22/G7:A'
+     begin scope: 'G22/G7/G5:A'
+     begin scope: 'G22/G7/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G22/G7/G5/G2:F'
+     begin scope: 'G22/G7/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G22/G7/G5/G4:F'
+     end scope: 'G22/G7/G5:F'
+     end scope: 'G22/G7:F'
+     begin scope: 'G22/G8:A'
+     begin scope: 'G22/G8/G5:A'
+     begin scope: 'G22/G8/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G22/G8/G5/G2:F'
+     begin scope: 'G22/G8/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G22/G8/G5/G4:F'
+     end scope: 'G22/G8/G5:F'
+     end scope: 'G22/G8:F'
+     begin scope: 'G22/G9:A'
+     begin scope: 'G22/G9/G5:A'
+     begin scope: 'G22/G9/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G22/G9/G5/G2:F'
+     begin scope: 'G22/G9/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G22/G9/G5/G4:F'
+     end scope: 'G22/G9/G5:F'
+     end scope: 'G22/G9:F'
+     begin scope: 'G22/G10:A'
+     begin scope: 'G22/G10/G5:A'
+     begin scope: 'G22/G10/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G22/G10/G5/G2:F'
+     begin scope: 'G22/G10/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G22/G10/G5/G4:F'
+     end scope: 'G22/G10/G5:F'
+     end scope: 'G22/G10:F'
+     begin scope: 'G22/G11:A'
+     begin scope: 'G22/G11/G5:A'
+     begin scope: 'G22/G11/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G22/G11/G5/G2:F'
+     begin scope: 'G22/G11/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G22/G11/G5/G4:F'
+     end scope: 'G22/G11/G5:F'
+     end scope: 'G22/G11:F'
+     begin scope: 'G22/G12:A'
+     begin scope: 'G22/G12/G5:A'
+     begin scope: 'G22/G12/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G22/G12/G5/G2:F'
+     begin scope: 'G22/G12/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G22/G12/G5/G4:F'
+     end scope: 'G22/G12/G5:F'
+     end scope: 'G22/G12:F'
+     begin scope: 'G22/G13:A'
+     begin scope: 'G22/G13/G5:A'
+     begin scope: 'G22/G13/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G22/G13/G5/G2:F'
+     begin scope: 'G22/G13/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G22/G13/G5/G4:F'
+     end scope: 'G22/G13/G5:F'
+     end scope: 'G22/G13:F'
+     begin scope: 'G22/G14:A'
+     begin scope: 'G22/G14/G5:A'
+     begin scope: 'G22/G14/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G22/G14/G5/G2:F'
+     begin scope: 'G22/G14/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G22/G14/G5/G4:F'
+     end scope: 'G22/G14/G5:F'
+     end scope: 'G22/G14:F'
+     end scope: 'G22:P'
+     begin scope: 'G23:A'
+     begin scope: 'G23/G7:A'
+     begin scope: 'G23/G7/G5:A'
+     begin scope: 'G23/G7/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G23/G7/G5/G2:F'
+     begin scope: 'G23/G7/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G23/G7/G5/G4:F'
+     end scope: 'G23/G7/G5:F'
+     end scope: 'G23/G7:F'
+     begin scope: 'G23/G8:A'
+     begin scope: 'G23/G8/G5:A'
+     begin scope: 'G23/G8/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G23/G8/G5/G2:F'
+     begin scope: 'G23/G8/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G23/G8/G5/G4:F'
+     end scope: 'G23/G8/G5:F'
+     end scope: 'G23/G8:F'
+     begin scope: 'G23/G9:A'
+     begin scope: 'G23/G9/G5:A'
+     begin scope: 'G23/G9/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G23/G9/G5/G2:F'
+     begin scope: 'G23/G9/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G23/G9/G5/G4:F'
+     end scope: 'G23/G9/G5:F'
+     end scope: 'G23/G9:F'
+     begin scope: 'G23/G10:A'
+     begin scope: 'G23/G10/G5:A'
+     begin scope: 'G23/G10/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G23/G10/G5/G2:F'
+     begin scope: 'G23/G10/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G23/G10/G5/G4:F'
+     end scope: 'G23/G10/G5:F'
+     end scope: 'G23/G10:F'
+     begin scope: 'G23/G11:A'
+     begin scope: 'G23/G11/G5:A'
+     begin scope: 'G23/G11/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G23/G11/G5/G2:F'
+     begin scope: 'G23/G11/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G23/G11/G5/G4:F'
+     end scope: 'G23/G11/G5:F'
+     end scope: 'G23/G11:F'
+     begin scope: 'G23/G12:A'
+     begin scope: 'G23/G12/G5:A'
+     begin scope: 'G23/G12/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G23/G12/G5/G2:F'
+     begin scope: 'G23/G12/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G23/G12/G5/G4:F'
+     end scope: 'G23/G12/G5:F'
+     end scope: 'G23/G12:F'
+     begin scope: 'G23/G13:A'
+     begin scope: 'G23/G13/G5:A'
+     begin scope: 'G23/G13/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G23/G13/G5/G2:F'
+     begin scope: 'G23/G13/G5/G4:A'
+     LUT2:I0->O            2   0.250   0.726  F1 (F)
+     end scope: 'G23/G13/G5/G4:F'
+     end scope: 'G23/G13/G5:F'
+     end scope: 'G23/G13:F'
+     end scope: 'G23:P'
+     begin scope: 'G24:A'
+     begin scope: 'G24/G5:A'
+     begin scope: 'G24/G5/G2:B'
+     LUT2:I1->O            1   0.254   0.790  F1 (F)
+     end scope: 'G24/G5/G2:F'
+     begin scope: 'G24/G5/G4:A'
+     LUT2:I0->O            1   0.250   0.000  F1 (F)
+     end scope: 'G24/G5/G4:F'
+     end scope: 'G24/G5:F'
+     end scope: 'G24:F'
+     begin scope: 'G25:data'
+     FD:D                      0.074          q
+    ----------------------------------------
+    Total                    132.516ns (33.909ns logic, 98.607ns route)
+                                       (25.6% logic, 74.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'G24/G6/G4/F'
+  Total number of paths / destination ports: 2 / 2
+-------------------------------------------------------------------------
+Offset:              5.098ns (Levels of Logic = 3)
+  Source:            G25/q (FF)
+  Destination:       LED2 (PAD)
+  Source Clock:      G24/G6/G4/F rising
+
+  Data Path: G25/q to LED2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               2   0.525   0.725  q (q)
+     end scope: 'G25:q'
+     INV:I->O              1   0.255   0.681  LED21_INV_0 (LED2_OBUF)
+     OBUF:I->O                 2.912          LED2_OBUF (LED2)
+    ----------------------------------------
+    Total                      5.098ns (3.692ns logic, 1.406ns route)
+                                       (72.4% logic, 27.6% route)
 
 =========================================================================
 
@@ -312,14 +1071,14 @@ Cross Clock Domains Report:
 =========================================================================
 
 
-Total REAL time to Xst completion: 5.00 secs
-Total CPU time to Xst completion: 5.07 secs
+Total REAL time to Xst completion: 10.00 secs
+Total CPU time to Xst completion: 10.26 secs
  
 --> 
 
 Total memory usage is 287872 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    2 (   0 filtered)
-Number of infos    :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
 

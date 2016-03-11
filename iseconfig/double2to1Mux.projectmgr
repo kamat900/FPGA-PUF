@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <!--This is an ISE project configuration file.-->
 <!--It holds project specific layout data for the projectmgr plugin.-->
 <!--Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.-->
@@ -12,6 +12,14 @@
          <ClosedNode>/MultiArbiter - Behavior C:|test|double2to1Mux|doubleMux.vhd/G10 - Arbiterstage - Func</ClosedNode>
          <ClosedNode>/MultiArbiter - Behavior C:|test|double2to1Mux|doubleMux.vhd/G11 - Arbiterstage - Func</ClosedNode>
          <ClosedNode>/MultiArbiter - Behavior C:|test|double2to1Mux|doubleMux.vhd/G12 - Arbiterstage - Func</ClosedNode>
+         <ClosedNode>/MultiArbiter - Behavior C:|test|double2to1Mux|doubleMux.vhd/G16 - bitStage - Func</ClosedNode>
+         <ClosedNode>/MultiArbiter - Behavior C:|test|double2to1Mux|doubleMux.vhd/G17 - bitStage - Func</ClosedNode>
+         <ClosedNode>/MultiArbiter - Behavior C:|test|double2to1Mux|doubleMux.vhd/G18 - bitStage - Func</ClosedNode>
+         <ClosedNode>/MultiArbiter - Behavior C:|test|double2to1Mux|doubleMux.vhd/G19 - bitStage - Func</ClosedNode>
+         <ClosedNode>/MultiArbiter - Behavior C:|test|double2to1Mux|doubleMux.vhd/G20 - bitStage - Func</ClosedNode>
+         <ClosedNode>/MultiArbiter - Behavior C:|test|double2to1Mux|doubleMux.vhd/G21 - bitStage - Func</ClosedNode>
+         <ClosedNode>/MultiArbiter - Behavior C:|test|double2to1Mux|doubleMux.vhd/G22 - bitStage - Func</ClosedNode>
+         <ClosedNode>/MultiArbiter - Behavior C:|test|double2to1Mux|doubleMux.vhd/G23 - bitStage - Func</ClosedNode>
          <ClosedNode>/MultiArbiter - Behavior C:|test|double2to1Mux|doubleMux.vhd/G7 - Arbiterstage - Func</ClosedNode>
          <ClosedNode>/MultiArbiter - Behavior C:|test|double2to1Mux|doubleMux.vhd/G8 - Arbiterstage - Func</ClosedNode>
          <ClosedNode>/MultiArbiter - Behavior C:|test|double2to1Mux|doubleMux.vhd/G9 - Arbiterstage - Func</ClosedNode>
@@ -21,7 +29,7 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000015f000000020000000000000000000000000200000064ffffffff0000008100000003000000020000015f0000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000015a000000020000000000000000000000000200000064ffffffff0000008100000003000000020000015a0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
       <CurrentItem>MultiArbiter - Behavior (C:/test/double2to1Mux/doubleMux.vhd)</CurrentItem>
    </ItemView>
@@ -30,18 +38,20 @@
          <ClosedNodesVersion>1</ClosedNodesVersion>
          <ClosedNode>Configure Target Device</ClosedNode>
          <ClosedNode>Design Utilities</ClosedNode>
-         <ClosedNode>Implement Design</ClosedNode>
+         <ClosedNode>Implement Design/Map</ClosedNode>
+         <ClosedNode>Implement Design/Place &amp; Route</ClosedNode>
+         <ClosedNode>Implement Design/Translate</ClosedNode>
          <ClosedNode>Synthesize - XST</ClosedNode>
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem>Generate Programming File</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000e7000000010000000100000000000000000000000064ffffffff000000810000000000000001000000e70000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem>Generate Programming File</CurrentItem>
    </ItemView>
    <ItemView guiview="File" >
       <ClosedNodes>
@@ -72,28 +82,74 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem/>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem/>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Design Utilities/Compile HDL Simulation Libraries</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>Design Utilities</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>Design Utilities</CurrentItem>
+   </ItemView>
+   <SourceProcessView>000000ff00000000000000020000011b0000011b01000000050100000002</SourceProcessView>
+   <CurrentView>Implementation</CurrentView>
+   <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/MultiArbiter - Behavior C:|test|double2to1Mux|doubleMux.vhd/G10 - Arbiterstage - Func</ClosedNode>
+         <ClosedNode>/MultiArbiter - Behavior C:|test|double2to1Mux|doubleMux.vhd/G11 - Arbiterstage - Func</ClosedNode>
+         <ClosedNode>/MultiArbiter - Behavior C:|test|double2to1Mux|doubleMux.vhd/G12 - Arbiterstage - Func</ClosedNode>
+         <ClosedNode>/MultiArbiter - Behavior C:|test|double2to1Mux|doubleMux.vhd/G7 - Arbiterstage - Func</ClosedNode>
+         <ClosedNode>/MultiArbiter - Behavior C:|test|double2to1Mux|doubleMux.vhd/G8 - Arbiterstage - Func</ClosedNode>
+         <ClosedNode>/MultiArbiter - Behavior C:|test|double2to1Mux|doubleMux.vhd/G9 - Arbiterstage - Func</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>MultiArbiter - Behavior (C:/test/double2to1Mux/doubleMux.vhd)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >5</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000015f000000020000000000000000000000000200000064ffffffff0000008100000003000000020000015f0000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>MultiArbiter - Behavior (C:/test/double2to1Mux/doubleMux.vhd)</CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
          <ClosedNode>Design Utilities</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem/>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem/>
    </ItemView>
-   <SourceProcessView>000000ff00000000000000020000011b0000011b01000000050100000002</SourceProcessView>
-   <CurrentView>Implementation</CurrentView>
+   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>ISim Simulator</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>ISim Simulator</CurrentItem>
+   </ItemView>
 </Project>
