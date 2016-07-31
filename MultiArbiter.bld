@@ -15,6 +15,8 @@ Checking Constraint Associations...
 Done...
 
 Checking expanded design ...
+WARNING:NgdBuild:452 - logical net 'G16/A' has no driver
+WARNING:NgdBuild:452 - logical net 'G16/B' has no driver
 
 Partition Implementation Status
 -------------------------------
@@ -25,12 +27,12 @@ Partition Implementation Status
 
 NGDBUILD Design Results Summary:
   Number of errors:     0
-  Number of warnings:   0
+  Number of warnings:   2
 
-Total memory usage is 182620 kilobytes
+Total memory usage is 185956 kilobytes
 
 Writing NGD file "MultiArbiter.ngd" ...
-Total REAL time to NGDBUILD completion:  4 sec
+Total REAL time to NGDBUILD completion:  3 sec
 Total CPU time to NGDBUILD completion:   3 sec
 
 Writing NGDBUILD log file "MultiArbiter.bld"...

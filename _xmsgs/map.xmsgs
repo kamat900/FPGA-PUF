@@ -5,10 +5,33 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="info" file="LIT" num="243" delta="old" >Logical network <arg fmt="%s" index="1">G16/A</arg> has no load.
+</msg>
+
+<msg type="info" file="LIT" num="395" delta="old" >The above <arg fmt="%s" index="1">info</arg> message is repeated <arg fmt="%d" index="2">1</arg> more times for the following (max. 5 shown):
+<arg fmt="%s" index="3">G16/B</arg>
+To see the details of these <arg fmt="%s" index="4">info</arg> messages, please use the -detail switch.
+</msg>
+
 <msg type="info" file="MapLib" num="562" delta="old" >No environment variables are currently set.
 </msg>
 
+<msg type="warning" file="MapLib" num="328" delta="old" >Block <arg fmt="%s" index="1">G16/G7/G6/G3</arg> is not a recognized logical block. The mapper will continue to process the design but there may be design problems if this block does not get trimmed.
+</msg>
+
+<msg type="warning" file="MapLib" num="328" delta="old" >Block <arg fmt="%s" index="1">G16/G7/G6/G2</arg> is not a recognized logical block. The mapper will continue to process the design but there may be design problems if this block does not get trimmed.
+</msg>
+
+<msg type="warning" file="MapLib" num="328" delta="old" >Block <arg fmt="%s" index="1">G16/G7/G5/G3</arg> is not a recognized logical block. The mapper will continue to process the design but there may be design problems if this block does not get trimmed.
+</msg>
+
+<msg type="warning" file="MapLib" num="328" delta="old" >Block <arg fmt="%s" index="1">G16/G7/G5/G2</arg> is not a recognized logical block. The mapper will continue to process the design but there may be design problems if this block does not get trimmed.
+</msg>
+
 <msg type="warning" file="MapLib" num="1073" delta="old" >This design has <arg fmt="%i" index="1">713</arg> KEEP_HIERARCHY constraints specified and therefore, may take a very long time to process. If your design has unexpectedly long run times, please consider minimizing the number of KEEP_HIERARCHY constraints in your design or use the -ignore_keep_hierarchy command line switch to have them ignored by MAP.
+</msg>
+
+<msg type="info" file="LIT" num="244" delta="old" >All of the single ended outputs in this design are using slew rate limited output drivers. The delay on speed critical single ended outputs can be dramatically reduced by designating them as fast outputs.
 </msg>
 
 <msg type="info" file="Pack" num="1716" delta="old" >Initializing temperature to <arg fmt="%0.3f" index="1">85.000</arg> Celsius. (default - Range: <arg fmt="%0.3f" index="2">0.000</arg> to <arg fmt="%0.3f" index="3">85.000</arg> Celsius)
@@ -23,7 +46,7 @@
 <msg type="info" file="Pack" num="1650" delta="old" >Map created a placed design.
 </msg>
 
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">outDo9</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
+<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">outDo8</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
 </msg>
 
 </messages>

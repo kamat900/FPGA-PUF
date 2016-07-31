@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-DESKTOP-I2LCMFJ::  Thu Mar 10 12:44:18 2016
+DESKTOP-I2LCMFJ::  Fri Apr 15 10:31:23 2016
 
 par -w -intstyle ise -ol high -mt off MultiArbiter_map.ncd MultiArbiter.ncd
 MultiArbiter.pcf 
@@ -32,21 +32,21 @@ Slice Logic Utilization:
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                        513 out of   5,720    8%
-    Number used as logic:                      513 out of   5,720    8%
-      Number using O6 output only:             513
+  Number of Slice LUTs:                        508 out of   5,720    8%
+    Number used as logic:                      508 out of   5,720    8%
+      Number using O6 output only:             508
       Number using O5 output only:               0
       Number using O5 and O6:                    0
       Number used as ROM:                        0
     Number used as Memory:                       0 out of   1,440    0%
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   514 out of   1,430   35%
+  Number of occupied Slices:                   509 out of   1,430   35%
   Number of MUXCYs used:                         0 out of   2,860    0%
-  Number of LUT Flip Flop pairs used:          514
-    Number with an unused Flip Flop:           513 out of     514   99%
-    Number with an unused LUT:                   1 out of     514    1%
-    Number of fully used LUT-FF pairs:           0 out of     514    0%
+  Number of LUT Flip Flop pairs used:          509
+    Number with an unused Flip Flop:           508 out of     509   99%
+    Number with an unused LUT:                   1 out of     509    1%
+    Number of fully used LUT-FF pairs:           0 out of     509    0%
     Number of slice register sites lost
       to control set restrictions:               0 out of  11,440    0%
 
@@ -57,8 +57,7 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                        12 out of     200    6%
-    Number of LOCed IOBs:                       12 out of      12  100%
+  Number of bonded IOBs:                        65 out of     200   32%
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         0 out of      32    0%
@@ -93,29 +92,29 @@ Finished initial Timing Analysis.  REAL time: 3 secs
 Starting Router
 
 
-Phase  1  : 901 unrouted;      REAL time: 3 secs 
+Phase  1  : 891 unrouted;      REAL time: 3 secs 
 
-Phase  2  : 901 unrouted;      REAL time: 3 secs 
+Phase  2  : 891 unrouted;      REAL time: 3 secs 
 
-Phase  3  : 115 unrouted;      REAL time: 3 secs 
+Phase  3  : 214 unrouted;      REAL time: 3 secs 
 
-Phase  4  : 115 unrouted; (Par is working to improve performance)     REAL time: 3 secs 
+Phase  4  : 214 unrouted; (Par is working to improve performance)     REAL time: 3 secs 
 
 Updating file: MultiArbiter.ncd with current fully routed design.
 
-Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
+Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 3 secs 
 
-Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
+Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 3 secs 
 
-Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
+Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 3 secs 
 
-Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
+Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 3 secs 
 
-Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
+Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 3 secs 
 
-Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
-Total REAL time to Router completion: 4 secs 
-Total CPU time to Router completion: 4 secs 
+Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 3 secs 
+Total REAL time to Router completion: 3 secs 
+Total CPU time to Router completion: 3 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -147,7 +146,7 @@ All signals are completely routed.
 Total REAL time to PAR completion: 4 secs 
 Total CPU time to PAR completion: 4 secs 
 
-Peak Memory Usage:  325 MB
+Peak Memory Usage:  342 MB
 
 Placer: Placement generated during map.
 Routing: Completed - No errors found.

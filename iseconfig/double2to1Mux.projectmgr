@@ -9,6 +9,7 @@
          <ClosedNodesVersion>2</ClosedNodesVersion>
          <ClosedNode>/Arbiterstage - Behavior C:|test|double2to1Mux|doubleMux.vhd/G5 - Mux_2_to_1 - Func</ClosedNode>
          <ClosedNode>/Arbiterstage - Behavior C:|test|double2to1Mux|doubleMux.vhd/G6 - Mux_2_to_1 - Func</ClosedNode>
+         <ClosedNode>/MultiArbiter - Behavior C:|test|double2to1Mux|doubleMux.vhd</ClosedNode>
          <ClosedNode>/MultiArbiter - Behavior C:|test|double2to1Mux|doubleMux.vhd/G10 - Arbiterstage - Func</ClosedNode>
          <ClosedNode>/MultiArbiter - Behavior C:|test|double2to1Mux|doubleMux.vhd/G11 - Arbiterstage - Func</ClosedNode>
          <ClosedNode>/MultiArbiter - Behavior C:|test|double2to1Mux|doubleMux.vhd/G12 - Arbiterstage - Func</ClosedNode>
@@ -23,21 +24,23 @@
          <ClosedNode>/MultiArbiter - Behavior C:|test|double2to1Mux|doubleMux.vhd/G7 - Arbiterstage - Func</ClosedNode>
          <ClosedNode>/MultiArbiter - Behavior C:|test|double2to1Mux|doubleMux.vhd/G8 - Arbiterstage - Func</ClosedNode>
          <ClosedNode>/MultiArbiter - Behavior C:|test|double2to1Mux|doubleMux.vhd/G9 - Arbiterstage - Func</ClosedNode>
+         <ClosedNode>/sevenbitStage - Func C:|test|double2to1Mux|doubleMux.vhd</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
          <SelectedItem>MultiArbiter - Behavior (C:/test/double2to1Mux/doubleMux.vhd)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000015a000000020000000000000000000000000200000064ffffffff0000008100000003000000020000015a0000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000012b000000020000000000000000000000000200000064ffffffff0000008100000003000000020000012b0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>MultiArbiter - Behavior (C:/test/double2to1Mux/doubleMux.vhd)</CurrentItem>
+      <CurrentItem>xc6slx9-2csg324</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
          <ClosedNode>Configure Target Device</ClosedNode>
          <ClosedNode>Design Utilities</ClosedNode>
+         <ClosedNode>Implement Design</ClosedNode>
          <ClosedNode>Implement Design/Map</ClosedNode>
          <ClosedNode>Implement Design/Place &amp; Route</ClosedNode>
          <ClosedNode>Implement Design/Translate</ClosedNode>
@@ -45,13 +48,13 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Generate Programming File</SelectedItem>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000e7000000010000000100000000000000000000000064ffffffff000000810000000000000001000000e70000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>Generate Programming File</CurrentItem>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView guiview="File" >
       <ClosedNodes>
@@ -96,13 +99,13 @@
          <ClosedNode>Design Utilities/Compile HDL Simulation Libraries</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Design Utilities</SelectedItem>
+         <SelectedItem/>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>Design Utilities</CurrentItem>
+      <CurrentItem/>
    </ItemView>
    <SourceProcessView>000000ff00000000000000020000011b0000011b01000000050100000002</SourceProcessView>
    <CurrentView>Implementation</CurrentView>

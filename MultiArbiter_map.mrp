@@ -11,33 +11,33 @@ Target Device  : xc6slx9
 Target Package : csg324
 Target Speed   : -2
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Thu Mar 10 12:44:07 2016
+Mapped Date    : Fri Apr 15 10:30:58 2016
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:    2
+Number of warnings:    6
 Slice Logic Utilization:
   Number of Slice Registers:                     1 out of  11,440    1%
     Number used as Flip Flops:                   1
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                        513 out of   5,720    8%
-    Number used as logic:                      513 out of   5,720    8%
-      Number using O6 output only:             513
+  Number of Slice LUTs:                        508 out of   5,720    8%
+    Number used as logic:                      508 out of   5,720    8%
+      Number using O6 output only:             508
       Number using O5 output only:               0
       Number using O5 and O6:                    0
       Number used as ROM:                        0
     Number used as Memory:                       0 out of   1,440    0%
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   514 out of   1,430   35%
+  Number of occupied Slices:                   509 out of   1,430   35%
   Number of MUXCYs used:                         0 out of   2,860    0%
-  Number of LUT Flip Flop pairs used:          514
-    Number with an unused Flip Flop:           513 out of     514   99%
-    Number with an unused LUT:                   1 out of     514    1%
-    Number of fully used LUT-FF pairs:           0 out of     514    0%
+  Number of LUT Flip Flop pairs used:          509
+    Number with an unused Flip Flop:           508 out of     509   99%
+    Number with an unused LUT:                   1 out of     509    1%
+    Number of fully used LUT-FF pairs:           0 out of     509    0%
     Number of unique control sets:               1
     Number of slice register sites lost
       to control set restrictions:               7 out of  11,440    1%
@@ -49,8 +49,7 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                        12 out of     200    6%
-    Number of LOCed IOBs:                       12 out of      12  100%
+  Number of bonded IOBs:                        65 out of     200   32%
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         0 out of      32    0%
@@ -75,11 +74,11 @@ Specific Feature Utilization:
   Number of STARTUPs:                            0 out of       1    0%
   Number of SUSPEND_SYNCs:                       0 out of       1    0%
 
-Average Fanout of Non-Clock Nets:                1.72
+Average Fanout of Non-Clock Nets:                1.56
 
-Peak Memory Usage:  365 MB
-Total REAL time to MAP completion:  8 secs 
-Total CPU time to MAP completion:   8 secs 
+Peak Memory Usage:  396 MB
+Total REAL time to MAP completion:  22 secs 
+Total CPU time to MAP completion:   22 secs 
 
 Table of Contents
 -----------------
@@ -102,18 +101,38 @@ Section 1 - Errors
 
 Section 2 - Warnings
 --------------------
+WARNING:MapLib:328 - Block G16/G7/G6/G3 is not a recognized logical block. The
+   mapper will continue to process the design but there may be design problems
+   if this block does not get trimmed.
+WARNING:MapLib:328 - Block G16/G7/G6/G2 is not a recognized logical block. The
+   mapper will continue to process the design but there may be design problems
+   if this block does not get trimmed.
+WARNING:MapLib:328 - Block G16/G7/G5/G3 is not a recognized logical block. The
+   mapper will continue to process the design but there may be design problems
+   if this block does not get trimmed.
+WARNING:MapLib:328 - Block G16/G7/G5/G2 is not a recognized logical block. The
+   mapper will continue to process the design but there may be design problems
+   if this block does not get trimmed.
 WARNING:MapLib:1073 - This design has 713 KEEP_HIERARCHY constraints specified
    and therefore, may take a very long time to process. If your design has
    unexpectedly long run times, please consider minimizing the number of
    KEEP_HIERARCHY constraints in your design or use the -ignore_keep_hierarchy
    command line switch to have them ignored by MAP.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net outDo9 is sourced by a
+WARNING:PhysDesignRules:372 - Gated clock. Clock net outDo8 is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to
    control the loading of data into the flip-flop.
 
 Section 3 - Informational
 -------------------------
+INFO:LIT:243 - Logical network G16/A has no load.
+INFO:LIT:395 - The above info message is repeated 1 more times for the following
+   (max. 5 shown):
+   G16/B
+   To see the details of these info messages, please use the -detail switch.
 INFO:MapLib:562 - No environment variables are currently set.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
 INFO:Pack:1716 - Initializing temperature to 85.000 Celsius. (default - Range:
    0.000 to 85.000 Celsius)
 INFO:Pack:1720 - Initializing voltage to 1.140 Volts. (default - Range: 1.140 to
@@ -128,9 +147,6 @@ Section 4 - Removed Logic Summary
 Section 5 - Removed Logic
 -------------------------
 
-To enable printing of redundant blocks removed and signals merged, set the
-detailed map report option and rerun map.
-
 Section 6 - IOB Properties
 --------------------------
 
@@ -138,18 +154,71 @@ Section 6 - IOB Properties
 | IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
 |                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
-| DIP1                               | IOB              | INPUT     | LVCMOS33             |       |          |      |              | PULLUP   |          |
-| DIP2                               | IOB              | INPUT     | LVCMOS33             |       |          |      |              | PULLUP   |          |
-| DIP3                               | IOB              | INPUT     | LVCMOS33             |       |          |      |              | PULLUP   |          |
-| DIP4                               | IOB              | INPUT     | LVCMOS33             |       |          |      |              | PULLUP   |          |
-| DIP5                               | IOB              | INPUT     | LVCMOS33             |       |          |      |              | PULLUP   |          |
-| DIP6                               | IOB              | INPUT     | LVCMOS33             |       |          |      |              | PULLUP   |          |
-| DIP7                               | IOB              | INPUT     | LVCMOS33             |       |          |      |              | PULLUP   |          |
-| DIP8                               | IOB              | INPUT     | LVCMOS33             |       |          |      |              | PULLUP   |          |
-| LED1                               | IOB              | OUTPUT    | LVCMOS33             |       | 8        | FAST |              |          |          |
-| LED2                               | IOB              | OUTPUT    | LVCMOS33             |       | 8        | FAST |              |          |          |
-| SWITCH1                            | IOB              | INPUT     | LVCMOS33             |       |          |      |              | PULLUP   |          |
-| SWITCH2                            | IOB              | INPUT     | LVCMOS33             |       |          |      |              | PULLUP   |          |
+| bitArray<0>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<1>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<2>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<3>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<4>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<5>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<6>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<7>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<8>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<9>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<10>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<11>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<12>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<13>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<14>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<15>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<16>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<17>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<18>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<19>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<20>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<21>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<22>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<23>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<24>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<25>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<26>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<27>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<28>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<29>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<30>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<31>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<32>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<33>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<34>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<35>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<36>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<37>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<38>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<39>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<40>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<41>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<42>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<43>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<44>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<45>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<46>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<47>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<48>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<49>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<50>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<51>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<52>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<53>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<54>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<55>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<56>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<57>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<58>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<59>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<60>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<61>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<62>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| bitArray<63>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| retSig                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Section 7 - RPMs

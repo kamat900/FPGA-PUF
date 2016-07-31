@@ -168,7 +168,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1457610029" xil_pn:in_ck="6562328022443021125" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-757397736128379339" xil_pn:start_ts="1457610016">
+    <transform xil_pn:end_ts="1460709051" xil_pn:in_ck="6562328022443021125" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-757397736128379339" xil_pn:start_ts="1460709040">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
@@ -185,12 +185,13 @@
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
     </transform>
-    <transform xil_pn:end_ts="1457610239" xil_pn:in_ck="6578114222110546020" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="8952773329584768703" xil_pn:start_ts="1457610239">
+    <transform xil_pn:end_ts="1460707521" xil_pn:in_ck="6578114222110546020" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="8952773329584768703" xil_pn:start_ts="1460707521">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1457610245" xil_pn:in_ck="2458422474980173188" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-1384584840289349933" xil_pn:start_ts="1457610239">
+    <transform xil_pn:end_ts="1460709057" xil_pn:in_ck="2458422474980173188" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-1384584840289349933" xil_pn:start_ts="1460709051">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="MultiArbiter.bld"/>
       <outfile xil_pn:name="MultiArbiter.ngd"/>
@@ -198,12 +199,10 @@
       <outfile xil_pn:name="_ngo"/>
       <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1457610257" xil_pn:in_ck="-8689957262073224025" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="-3239470449407159120" xil_pn:start_ts="1457610245">
+    <transform xil_pn:end_ts="1460709082" xil_pn:in_ck="-8689957262073224025" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="-3239470449407159120" xil_pn:start_ts="1460709057">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="MultiArbiter.pcf"/>
       <outfile xil_pn:name="MultiArbiter_map.map"/>
       <outfile xil_pn:name="MultiArbiter_map.mrp"/>
@@ -214,7 +213,7 @@
       <outfile xil_pn:name="MultiArbiter_usage.xml"/>
       <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1457610269" xil_pn:in_ck="-3166945000258769774" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="93661965788626211" xil_pn:start_ts="1457610257">
+    <transform xil_pn:end_ts="1460709095" xil_pn:in_ck="-3166945000258769774" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="93661965788626211" xil_pn:start_ts="1460709082">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="MultiArbiter.ncd"/>
@@ -228,10 +227,14 @@
       <outfile xil_pn:name="MultiArbiter_par.xrpt"/>
       <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1457610290" xil_pn:in_ck="-4916613339538295017" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="4970201210546912173" xil_pn:start_ts="1457610274">
+    <transform xil_pn:end_ts="1460707591" xil_pn:in_ck="-4916613339538295017" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="4970201210546912173" xil_pn:start_ts="1460707575">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="MultiArbiter.ut"/>
       <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
       <outfile xil_pn:name="multiarbiter.bgn"/>
@@ -242,7 +245,7 @@
       <outfile xil_pn:name="webtalk.log"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1457610269" xil_pn:in_ck="5603386205920630427" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1457610264">
+    <transform xil_pn:end_ts="1460709095" xil_pn:in_ck="5603386205920630427" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1460709089">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="MultiArbiter.twr"/>
